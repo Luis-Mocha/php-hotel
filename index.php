@@ -77,18 +77,42 @@
     </h1>
 
     <!-- FORM -->
-    <form action="index.php" method="GET">
+    <form action="index.php" method="GET" class="border rounded mx-5 p-2">
         
         <!-- input parking -->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mb-4">
             <label for="input-parking">Parcheggio:</label>
             <input class="ms-3" type="checkbox" name="inputParking" id="input-parking" checked>
         </div>
 
         <!-- input vote -->
         <div class="d-flex flex-column align-items-center mb-3">
-            <label for="input-vote">Voto:</label>
-            <input type="range" name="inputVote" id="input-vote" min="1" max="5" step="1">
+            <div>
+                <span>Voto:</span>
+            </div>
+            <fieldset class="d-flex">
+                <div class="me-3">
+                    <input type="radio" id="vote1" name="inputVote" value="1">
+                    <label for="vote1">1</label>
+                </div>
+                <div class="me-3">
+                    <input type="radio" id="vote2" name="inputVote" value="2">
+                    <label for="vote2">2</label>
+                </div>
+                <div class="me-3">
+                    <input type="radio" id="vote3" name="inputVote" value="3">
+                    <label for="vote3">3</label>
+                </div>
+                <div class="me-3">
+                    <input type="radio" id="vote4" name="inputVote" value="4">
+                    <label for="vote4">4</label>
+                </div>
+                <div class="me-3">
+                    <input type="radio" id="vote5" name="inputVote" value="5">
+                    <label for="vote5">5</label>
+                </div>
+                
+            </fieldset>
         </div>
         
         <button type="submit" class="d-block mx-auto">
@@ -97,40 +121,42 @@
 
     </form>
 
-    <!-- CARD CONTAINER -->
 
-    <?php
+    <!-- CARD CONTAINER -->
+    <div class="container">
+        <?php
 
         if ($parking == 'on') {
                 
             foreach ($hotels as $elem) {   
                 if ($elem['parking']) {
-                    echo "<div>" . $elem['name'] . "</div>";
-                    echo "<div>" . $elem['description'] . "</div>";
-                    echo "<div>" . "voto:" . $elem['vote'] . "</div>";
-                    echo "<div>" . "parcheggio: Disponibile" . "</div>";
-                    echo "<div>" . "distanza dal centro:" . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+                    echo "<h2>" . $elem['name'] . "</h2>";
+                    echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
+                    echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
+                    echo "<div>" . "Parcheggio: Disponibile" . "</div>";
+                    echo "<div>" . "Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
                 }
             } 
 
         } else {
             foreach ($hotels as $elem) {                
 
-                echo "<div>" . $elem['name'] . "</div>";
-                echo "<div>" . $elem['description'] . "</div>";
-                echo "<div>" . "voto:" . $elem['vote'] . "</div>";
+                echo "<h2>" . $elem['name'] . "</h2>";
+                echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
+                echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
 
                 if ($elem['parking']) {
-                    echo "<div>" . "parcheggio: Disponibile" . "</div>";
+                    echo "<div" . "Parcheggio: Disponibile" . "</div>";
                 } else {
-                    echo "<div>" . "parcheggio: NON disponibile" . "</div>";
+                    echo "<div>" . "Parcheggio: NON disponibile" . "</div>";
                 };                
                 
-                echo "<div>" . "distanza dal centro:" . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+                echo "<div>" . "Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<hr>";
             }
         };
 
-    ?>
+        ?>
+    </div>
 
 </body>
 </html>
