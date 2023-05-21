@@ -1,6 +1,6 @@
 <?php
 
-// --- Informazioni Hotel ---
+// --- Informazioni Hotel (array multidimensionale) ---
     $hotels = [
         [
             'name' => 'Hotel Belvedere',
@@ -44,6 +44,7 @@
 
     // Equivalente di console.log()
     var_dump($hotels);
+    echo in_array('parking', $hotels[0]);
 ?>
 
 
@@ -63,8 +64,45 @@
 <body>
 
     <h1 class="text-center text-uppercase">
-        Hotels
+        Scegli il tuo Hotel
     </h1>
+
+    <div class="container">
+
+        <div class="card text-center">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <?php echo $hotels[0]["name"]?>
+                </h2>
+                <p class="card-subtitle mb-2 text-body-secondary">
+                    <?php echo $hotels[0]["description"]?>
+                </p>
+                
+                <div class="card-text">
+                    Voto: <?php echo $hotels[0]["vote"]?>
+                </div>
+
+                <div class="d-flex justify-content-evenly">
+                    <div class="card-text d-flex flex-column">
+                        <span>
+                            Parcheggio: 
+                        </span>
+                        <?php echo $hotels[0]["parking"]?>
+                    </div>
+                    <div class="card-text d-flex flex-column">
+                        <span>
+                            Distanza dal centro:
+                        </span>
+                        <?php echo $hotels[0]["distance_to_center"]?>
+                    </div>
+                </div>
+
+                <!-- <?php echo in_array('parking', $hotels[2]) ?> -->
+                
+            </div>
+        </div>
+
+    </div>
 
     <form action="pagina.php" method="POST">
         
