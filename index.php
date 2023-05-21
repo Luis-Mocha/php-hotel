@@ -42,9 +42,17 @@
     // echo str_replace( 'stringa da cambiare', 'nuova stringa', 'stringa in cui fare lo scambio');
     // echo strlen($stringa); --lunghezza stringa
 
+    $parking = $_GET['inputParking'];
+    $vote = $_GET['inputVote'];
+    $arrayGet = $_GET;
+
+    
     // Equivalente di console.log()
-    var_dump($hotels);
-    echo in_array('parking', $hotels[0]);
+    // var_dump($hotels);
+    var_dump($parking);
+    var_dump($vote);
+    var_dump($arrayGet);
+  
 ?>
 
 
@@ -59,6 +67,7 @@
     <!-- link bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -67,44 +76,8 @@
         Scegli il tuo Hotel
     </h1>
 
-    <div class="container">
-
-        <div class="card text-center">
-            <div class="card-body">
-                <h2 class="card-title">
-                    <?php echo $hotels[0]["name"]?>
-                </h2>
-                <p class="card-subtitle mb-2 text-body-secondary">
-                    <?php echo $hotels[0]["description"]?>
-                </p>
-                
-                <div class="card-text">
-                    Voto: <?php echo $hotels[0]["vote"]?>
-                </div>
-
-                <div class="d-flex justify-content-evenly">
-                    <div class="card-text d-flex flex-column">
-                        <span>
-                            Parcheggio: 
-                        </span>
-                        <?php echo $hotels[0]["parking"]?>
-                    </div>
-                    <div class="card-text d-flex flex-column">
-                        <span>
-                            Distanza dal centro:
-                        </span>
-                        <?php echo $hotels[0]["distance_to_center"]?>
-                    </div>
-                </div>
-
-                <!-- <?php echo in_array('parking', $hotels[2]) ?> -->
-                
-            </div>
-        </div>
-
-    </div>
-
-    <form action="pagina.php" method="POST">
+    <!-- FORM -->
+    <form action="index.php" method="GET">
         
         <!-- input parking -->
         <div class="d-flex justify-content-center">
@@ -123,6 +96,41 @@
         </button>
 
     </form>
-    
+
+    <!-- CARD CONTAINER -->
+
+    <?php
+
+        if ($parking == 'on') {
+                
+            foreach ($hotels as $elem) {   
+                if ($elem['parking']) {
+                    echo "<div>" . $elem['name'] . "</div>";
+                    echo "<div>" . $elem['description'] . "</div>";
+                    echo "<div>" . "voto:" . $elem['vote'] . "</div>";
+                    echo "<div>" . "parcheggio: Disponibile" . "</div>";
+                    echo "<div>" . "distanza dal centro:" . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+                }
+            } 
+
+        } else {
+            foreach ($hotels as $elem) {                
+
+                echo "<div>" . $elem['name'] . "</div>";
+                echo "<div>" . $elem['description'] . "</div>";
+                echo "<div>" . "voto:" . $elem['vote'] . "</div>";
+
+                if ($elem['parking']) {
+                    echo "<div>" . "parcheggio: Disponibile" . "</div>";
+                } else {
+                    echo "<div>" . "parcheggio: NON disponibile" . "</div>";
+                };                
+                
+                echo "<div>" . "distanza dal centro:" . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+            }
+        };
+
+    ?>
+
 </body>
 </html>
