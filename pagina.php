@@ -1,10 +1,10 @@
 <?php
-    $text= $_POST['inputText'];
-    $number= $_POST['inputNumber'];
+    $parking= $_POST['inputParking'];
+    $vote= $_POST['inputVote'];
 
     // Equivalente di console.log()
-    var_dump($text);
-    var_dump($number);
+    var_dump($parking);
+    var_dump($vote);
 ?>
 
 
@@ -24,11 +24,11 @@
 <body>
 
     <div>
-        <?php echo $text ?>
+        <?php echo $parking ?>
     </div>
 
     <div>
-        <?php echo $number ?>
+        <?php echo $vote ?>
     </div>
 
 </body>
