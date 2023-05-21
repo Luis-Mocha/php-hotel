@@ -81,7 +81,7 @@
         
         <!-- input parking -->
         <div class="d-flex justify-content-center mb-4">
-            <label for="input-parking">Parcheggio:</label>
+            <label for="input-parking">Parcheggio obbligatorio:</label>
             <input class="ms-3" type="checkbox" name="inputParking" id="input-parking" checked>
         </div>
 
@@ -126,10 +126,10 @@
     <div class="container">
         <?php
 
-        if ($parking == 'on') {
-                
+        if ($parking == 'on' && $vote) {
+
             foreach ($hotels as $elem) {   
-                if ($elem['parking']) {
+                if ($elem['parking'] && $elem['vote'] >= $vote) {
                     echo "<h2>" . $elem['name'] . "</h2>";
                     echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
                     echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
@@ -138,7 +138,36 @@
                 }
             } 
 
-        } else {
+        } else if ($parking == 'on') {
+            foreach ($hotels as $elem) {
+                if ($elem['parking']) {
+                    echo "<h2>" . $elem['name'] . "</h2>";
+                    echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
+                    echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
+                    echo "<div>" . "Parcheggio: Disponibile" . "</div>";
+                    echo "<div>" . "Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+                }
+            }
+            
+        } else if ($vote) {
+            foreach ($hotels as $elem) {
+                if ($elem['vote'] >= $vote) {
+                    echo "<h2>" . $elem['name'] . "</h2>";
+                    echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
+                    echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
+                    
+                    if ($elem['parking']) {
+                        echo "<div" . "Parcheggio: Disponibile" . "</div>";
+                    } else {
+                        echo "<div>" . "Parcheggio: NON disponibile" . "</div>";
+                    }; 
+
+                    echo "<div>" . "Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+                }
+            }
+            
+        }
+        else {
             foreach ($hotels as $elem) {                
 
                 echo "<h2>" . $elem['name'] . "</h2>";
