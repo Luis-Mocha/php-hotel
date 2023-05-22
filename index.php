@@ -82,7 +82,7 @@
         <!-- input parking -->
         <div class="d-flex justify-content-center mb-4">
             <label for="input-parking">Parcheggio obbligatorio:</label>
-            <input class="ms-3" type="checkbox" name="inputParking" id="input-parking" checked>
+            <input class="ms-3" type="checkbox" name="inputParking" id="input-parking">
         </div>
 
         <!-- input vote -->
