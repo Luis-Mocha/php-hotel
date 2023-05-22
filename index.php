@@ -132,9 +132,9 @@
                 if ($elem['parking'] && $elem['vote'] >= $vote) {
                     echo "<h2>" . $elem['name'] . "</h2>";
                     echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
-                    echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
-                    echo "<div>" . "Parcheggio: Disponibile" . "</div>";
-                    echo "<div>" . "Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+                    echo "<div> Voto: " . $elem['vote'] . "</div>";
+                    echo "<div> Parcheggio: Disponibile" . "</div>";
+                    echo "<div> Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
                 }
             } 
 
@@ -143,9 +143,9 @@
                 if ($elem['parking']) {
                     echo "<h2>" . $elem['name'] . "</h2>";
                     echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
-                    echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
-                    echo "<div>" . "Parcheggio: Disponibile" . "</div>";
-                    echo "<div>" . "Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+                    echo "<div> Voto: " . $elem['vote'] . "</div>";
+                    echo "<div> Parcheggio: Disponibile" . "</div>";
+                    echo "<div> Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
                 }
             }
             
@@ -154,15 +154,15 @@
                 if ($elem['vote'] >= $vote) {
                     echo "<h2>" . $elem['name'] . "</h2>";
                     echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
-                    echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
+                    echo "<div> Voto: " . $elem['vote'] . "</div>";
                     
                     if ($elem['parking']) {
-                        echo "<div" . "Parcheggio: Disponibile" . "</div>";
+                        echo "<div> Parcheggio: Disponibile" . "</div>";
                     } else {
-                        echo "<div>" . "Parcheggio: NON disponibile" . "</div>";
+                        echo "<div> Parcheggio: NON disponibile" . "</div>";
                     }; 
 
-                    echo "<div>" . "Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
+                    echo "<div> Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
                 }
             }
             
@@ -172,15 +172,15 @@
 
                 echo "<h2>" . $elem['name'] . "</h2>";
                 echo "<div class='text-secondary fst-italic fw-light'>" . $elem['description'] . "</div>";
-                echo "<div>" . "Voto: " . $elem['vote'] . "</div>";
+                echo "<div> Voto: " . $elem['vote'] . "</div>";
 
                 if ($elem['parking']) {
-                    echo "<div" . "Parcheggio: Disponibile" . "</div>";
+                    echo "<div> Parcheggio: Disponibile" . "</div>";
                 } else {
-                    echo "<div>" . "Parcheggio: NON disponibile" . "</div>";
-                };                
+                    echo "<div> Parcheggio: NON disponibile" . "</div>";
+                };
                 
-                echo "<div>" . "Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<hr>";
+                echo "<div> Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<hr>";
             }
         };
 
