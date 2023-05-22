@@ -115,7 +115,7 @@
             </fieldset>
         </div>
         
-        <button type="submit" class="d-block mx-auto">
+        <button type="submit" class="d-block mx-auto btn btn-primary">
             Filtra
         </button>
 
@@ -157,9 +157,9 @@
                     echo "<div> Voto: " . $elem['vote'] . "</div>";
                     
                     if ($elem['parking']) {
-                        echo "<div> Parcheggio: Disponibile" . "</div>";
+                        echo "<div class='text-success'> Parcheggio: Disponibile" . "</div>";
                     } else {
-                        echo "<div> Parcheggio: NON disponibile" . "</div>";
+                        echo "<div class='text-danger'> Parcheggio: NON disponibile" . "</div>";
                     }; 
 
                     echo "<div> Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<br>";
@@ -175,9 +175,9 @@
                 echo "<div> Voto: " . $elem['vote'] . "</div>";
 
                 if ($elem['parking']) {
-                    echo "<div> Parcheggio: Disponibile" . "</div>";
+                    echo "<div class='text-success'> Parcheggio: Disponibile" . "</div>";
                 } else {
-                    echo "<div> Parcheggio: NON disponibile" . "</div>";
+                    echo "<div class='text-danger'> Parcheggio: NON disponibile" . "</div>";
                 };
                 
                 echo "<div> Distanza dal centro: " . $elem['distance_to_center'] . "Km" . "</div>" . "<hr>";
